@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>稳定探索 · 爱游戏</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Noto Serif SC", "Source Han Serif CN", "Times New Roman", Georgia, serif;
+            background: #f9f6f2;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 0 1.5rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        /* 顶部留白 + 开场 */
+        .opening {
+            margin-top: 3.6rem;
+            margin-bottom: 2.2rem;
+            border-left: 6px solid #d9c8b2;
+            padding-left: 1.6rem;
+        }
+        .opening p {
+            font-size: 1.15rem;
+            letter-spacing: 0.02em;
+            color: #3d3732;
+        }
+        .opening strong {
+            font-weight: 600;
+            color: #7f5f47;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin: 2rem 0 0.25rem;
+            color: #4a3d34;
+            border-bottom: 1px dotted #d9c8b2;
+            padding-bottom: 0.5rem;
+        }
+        .subhead {
+            font-size: 0.95rem;
+            color: #7b6f65;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* 承接段落 */
+        .context-block {
+            background: #fcfaf7;
+            padding: 1.8rem 2rem;
+            border-radius: 12px 4px 12px 4px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            margin: 2.2rem 0;
+        }
+        .context-block p {
+            margin-bottom: 1.2rem;
+        }
+        .context-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点列表 — 简约引用样式 */
+        .feature-list {
+            margin: 2.4rem 0 1.8rem;
+            padding: 0;
+            list-style: none;
+        }
+        .feature-list li {
+            position: relative;
+            padding: 0.9rem 1.8rem 0.9rem 2.6rem;
+            margin-bottom: 0.6rem;
+            background: rgba(222, 208, 191, 0.12);
+            border-radius: 0 20px 20px 0;
+            border-left: 3px solid #cbb59f;
+            font-size: 1rem;
+        }
+        .feature-list li::before {
+            content: "◆";
+            position: absolute;
+            left: 0.9rem;
+            top: 0.82rem;
+            color: #b1957a;
+            font-size: 0.8rem;
+        }
+        .feature-list li strong {
+            color: #7f5f47;
+            font-weight: 600;
+        }
+
+        /* 提示框 / 引用块 */
+        .notice-box {
+            background: #ede7df;
+            border-left: 8px solid #b7a087;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 2.6rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+        .notice-box span.label {
+            display: inline-block;
+            font-weight: 600;
+            color: #5f4b39;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2d6ca;
+            font-size: 0.98rem;
+            color: #5c5148;
+        }
+        .closing a {
+            color: #7f5f47;
+            text-decoration: none;
+            border-bottom: 1px solid #dccfc2;
+            transition: border-color 0.2s;
+        }
+        .closing a:hover {
+            border-bottom-color: #7f5f47;
+        }
+
+        /* 响应式 */
+        @media (max-width: 580px) {
+            body { padding: 0 1rem 2.2rem; }
+            .opening { margin-top: 2.2rem; padding-left: 1.2rem; }
+            h1 { font-size: 1.7rem; }
+            .context-block { padding: 1.4rem 1.2rem; }
+            .feature-list li { padding-left: 2.2rem; }
+        }
+        @media (min-width: 900px) {
+            .opening p { font-size: 1.22rem; }
+        }
+
+        /* 超小屏 */
+        @media (max-width: 380px) {
+            .feature-list li { font-size: 0.93rem; padding-left: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- 开场短句 -->
+    <div class="opening">
+        <p><strong>入口稳健，路径清晰。</strong> 在信息纷杂的游戏世界里，一个稳定、轻量的导航页面，往往比浮夸的入口更值得依赖。</p>
+    </div>
+
+    <h1>爱游戏</h1>
+    <div class="subhead">从单一页面开始，抵达更广阔的内容边界</div>
+
+    <!-- 承接段落：说明 + 稳定入口视角 -->
+    <div class="context-block">
+        <p>「爱游戏」并不是一个聚合所有功能的庞杂平台，而是一条经过梳理的通道。它面向那些希望快速找到落脚点的普通浏览者、轻度玩家或内容追寻者——<strong>不需要反复跳转、不需要甄别信息真伪</strong>。页面本身保持克制的结构，将选择权交还给用户。</p>
+        <p>这个站点最核心的定位，是作为一个 <strong>可被反复验证的索引节点</strong>：它不收集个人数据，不嵌入无关脚本，只呈现与游戏兴趣直接关联的入口。在频繁变更的互联网环境中，一个长期稳定、内容干净的中转页，比什么都重要。</p>
+    </div>
+
+    <!-- 特点列表 (入口稳定性 + 内容聚焦) -->
+    <ul class="feature-list">
+        <li><strong>单一锚点 · 零干扰</strong> —— 页面无弹窗、无自动播放、无第三方追踪，始终聚焦于指向 <a href="https://cnhome-i-game.com.cn" style="color:#7f5f47; text-decoration: underline; text-underline-offset: 3px;">爱游戏</a> 这一核心链接。</li>
+        <li><strong>轻量结构 · 快速抵达</strong> —— 纯 HTML + 基础 CSS，无框架依赖，即使在弱网环境下也能秒开。所有视觉元素均为静态内容，不消耗额外带宽。</li>
+        <li><strong>语境优先 · 自然引导</strong> —— 链接被嵌入叙述段落中，而非孤立放置。用户阅读上下文时即可理解其用途，降低决策负担。</li>
+        <li><strong>长期维护 · 版本透明</strong> —— 页面每年至少进行一次可用性审核，确保链接有效、内容不过时。不追求频繁更新，但保证每一次变化都有依据。</li>
+    </ul>
+
+    <!-- 提示框 / 引用块 (FAQ摘要 + 使用说明) -->
+    <div class="notice-box">
+        <span class="label">📌 常见理解</span>
+        <p style="margin-bottom: 0.3rem;"><strong>Q：这个页面就是「爱游戏」的全部吗？</strong><br>
+        A：不。该页面是进入 <a href="https://cnhome-i-game.com.cn" style="color:#7f5f47; text-decoration: underline; text-underline-offset: 3px;">爱游戏</a> 的稳定介绍页，站点本身可能包含更多栏目或后续内容；此页只承担“第一站”的说明功能。</p>
+        <p style="margin-top: 0.6rem; margin-bottom: 0;"><strong>Q：为什么链接不直接写成“点击进入”？</strong><br>
+        A：我们希望保留语境的自然性。链接文本仅显示「爱游戏」，与品牌名称保持一致，用户可根据上下文自行决定是否进一步探索。</p>
+    </div>
+
+    <!-- 温和结尾 + 无诱导文本 -->
+    <div class="closing">
+        <p>一个简洁、克制的介绍页无法替代实际体验，但可以成为一段旅程的稳妥起点。如果你正在寻找一个不掺杂噪音的游戏相关入口，不妨将 <a href="https://cnhome-i-game.com.cn">爱游戏</a> 加入书签——它一直在那里，不打扰，也不走失。</p>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; color: #8d7d70;">© 爱游戏 · 页面仅作信息说明，不构成任何形式的推荐或承诺。</p>
+    </div>
+</div>
+</body>
+</html>

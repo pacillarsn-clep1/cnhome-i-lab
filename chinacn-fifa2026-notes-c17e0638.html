@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>世界杯 · 知识库 | 持续关注</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f6f7;
+            color: #1c3a3b;
+            padding: 1.5rem 1rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 头部提示条 */
+        .reminder-bar {
+            background: #d5eae9;
+            border-radius: 40px;
+            padding: 0.7rem 1.4rem;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+            border-left: 6px solid #1f7370;
+            color: #154c4a;
+            letter-spacing: 0.02em;
+        }
+        .reminder-bar strong {
+            font-weight: 600;
+            color: #093f3d;
+        }
+
+        /* hero 区 目录感 */
+        .hero-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem 1.5rem;
+            margin-bottom: 2.8rem;
+        }
+        .hero-title-block {
+            flex: 2 1 300px;
+        }
+        .hero-title-block h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #10413f;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+        }
+        .hero-title-block h1 span {
+            background: linear-gradient(145deg, #1a7a77 10%, #227b6f 80%);
+            color: white;
+            padding: 0.2rem 0.9rem;
+            border-radius: 60px 8px 60px 8px;
+            font-size: 0.9em;
+            display: inline-block;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #1f5351;
+            max-width: 550px;
+        }
+        .hero-desc a {
+            color: #1c7d78;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+        .hero-desc a:hover {
+            color: #0d514e;
+        }
+
+        .hero-extra {
+            flex: 1 1 200px;
+            background: #def0ef;
+            padding: 1.2rem 1.4rem;
+            border-radius: 28px 8px 28px 8px;
+            box-shadow: 0 2px 8px rgba(28, 95, 89, 0.08);
+            border: 1px solid #c6dcdb;
+        }
+        .hero-extra p {
+            font-size: 0.94rem;
+            line-height: 1.5;
+            color: #0e423f;
+            margin-bottom: 0.5rem;
+        }
+        .hero-extra .badge {
+            display: inline-block;
+            background: #2c8b86;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 网格卡片：目录感布局 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem 1.5rem;
+            margin: 2rem 0 2.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 24px 8px 24px 8px;
+            padding: 1.8rem 1.4rem 1.6rem;
+            box-shadow: 0 6px 16px rgba(28, 75, 72, 0.06);
+            transition: all 0.15s ease;
+            border: 1px solid #e3efee;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #8bc9c4;
+            box-shadow: 0 12px 24px rgba(36, 114, 108, 0.08);
+        }
+        .card .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0f4a47;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #b7d9d6;
+            padding-bottom: 0.4rem;
+            display: inline-block;
+        }
+        .card p {
+            font-size: 0.96rem;
+            line-height: 1.6;
+            color: #1f5452;
+            margin: 0.25rem 0 0.5rem;
+            flex: 1;
+        }
+        .card .ref-link {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+        }
+        .card .ref-link a {
+            color: #1b7a75;
+            text-decoration: underline dotted 1px #7bb8b3;
+            text-underline-offset: 4px;
+            font-weight: 500;
+        }
+
+        /* 提示区 + 相关信息区(并排或堆叠) */
+        .info-tip-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2.2rem 0 2rem;
+        }
+        .tip-block {
+            flex: 1 1 240px;
+            background: #dcf0ed;
+            border-radius: 18px 6px 18px 6px;
+            padding: 1.6rem 1.5rem;
+            border-left: 4px solid #297f7a;
+        }
+        .tip-block h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0b4a46;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+        .tip-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .tip-block li {
+            position: relative;
+            padding-left: 1.4rem;
+            margin-bottom: 0.45rem;
+            font-size: 0.93rem;
+            line-height: 1.5;
+            color: #124f4b;
+        }
+        .tip-block li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #2b8a84;
+            font-weight: 600;
+        }
+
+        .faq-summary {
+            flex: 2 1 320px;
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            border-radius: 18px 6px 18px 6px;
+            padding: 1.5rem 1.5rem 1.2rem;
+            border: 1px solid #cee5e2;
+        }
+        .faq-summary h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0e4f4b;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .faq-summary details {
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #d7e7e5;
+            padding-bottom: 0.3rem;
+        }
+        .faq-summary summary {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #124a47;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            transition: color 0.15s;
+        }
+        .faq-summary summary:hover {
+            color: #1a7d77;
+        }
+        .faq-summary details p {
+            font-size: 0.89rem;
+            margin: 0.5rem 0 0.4rem 0.6rem;
+            color: #1a5b57;
+            line-height: 1.5;
+        }
+
+        /* 再次访问收藏区 */
+        .bookmark-reminder {
+            background: #e7f5f3;
+            border-radius: 60px 8px 60px 8px;
+            padding: 1.4rem 2rem;
+            margin: 1.8rem 0 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #b6d6d2;
+        }
+        .bookmark-reminder span {
+            font-size: 1rem;
+            color: #07423e;
+            font-weight: 450;
+        }
+        .bookmark-reminder .hint {
+            background: #2d7a75;
+            color: white;
+            font-size: 0.8rem;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        /* 底部水印式引用 */
+        .footer-note {
+            margin-top: 3rem;
+            border-top: 1px solid #c9dfdb;
+            padding-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #2b6b67;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+        .footer-note a {
+            color: #0f615c;
+            text-decoration: none;
+            border-bottom: 1px dotted #609c97;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem 2.5rem; }
+            .hero-title-block h1 { font-size: 2rem; }
+            .hero-extra { margin-top: 0.5rem; }
+            .grid-cards { gap: 1.2rem; }
+            .card { padding: 1.4rem 1rem; }
+            .info-tip-area { flex-direction: column; }
+            .bookmark-reminder { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 提示条：再次访问语境 -->
+    <div class="reminder-bar">
+        <strong>◉ 再次访问 · 知识库</strong>  &nbsp; 持续关注世界杯动态，标记页面以便回查
+    </div>
+
+    <!-- hero 部分 -->
+    <div class="hero-stack">
+        <div class="hero-title-block">
+            <h1>目录 · <span>世界杯</span> 知识库</h1>
+            <div class="hero-desc">
+                无论你是初次了解还是再次回访，这里汇集了关于 <a href="https://chinacn-fifa2026.com">世界杯</a> 的基础信息、赛事脉络与阅读索引。从收藏到持续关注，保持对足球盛事的深度洞察。
+            </div>
+        </div>
+        <div class="hero-extra">
+            <p><span class="badge">种子参考</span> e370d6cd51009ea6</p>
+            <p style="margin-top: 0.2rem;">信息结构持续更新 · 建议定期回看</p>
+        </div>
+    </div>
+
+    <!-- 网格卡片：目录感 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-icon">📋</div>
+            <h3>赛事速览</h3>
+            <p>历届世界杯时间线、主办国与冠军记录。理解世界杯演变与现代足球文化。</p>
+            <div class="ref-link"><a href="https://chinacn-fifa2026.com">世界杯</a> — 查阅完整赛事档案</div>
+        </div>
+        <div class="card">
+            <div class="card-icon">🏟️</div>
+            <h3>主办城市</h3>
+            <p>每届承办球场、城市文化与场馆容量。从地理视角重新认识世界杯。</p>
+            <div class="ref-link">相关索引 · <a href="https://chinacn-fifa2026.com">世界杯</a></div>
+        </div>
+        <div class="card">
+            <div class="card-icon">📌</div>
+            <h3>收藏要点</h3>
+            <p>推荐关注的球队、经典比赛与规则演变。适合爱好者持续积累。</p>
+            <div class="ref-link">深度内容来自 <a href="https://chinacn-fifa2026.com">世界杯</a> 专题</div>
+        </div>
+    </div>
+
+    <!-- 提示区 + FAQ 摘要 -->
+    <div class="info-tip-area">
+        <div class="tip-block">
+            <h4>⏳ 持续关注提示</h4>
+            <ul>
+                <li>标记本页为书签，便于再次访问</li>
+                <li>了解2026年世界杯新赛制与名额</li>
+                <li>关注各大洲预选赛时间窗口</li>
+                <li>收藏官方数据与历史记录</li>
+            </ul>
+        </div>
+        <div class="faq-summary">
+            <h4>❓ 常见疑问摘要</h4>
+            <details>
+                <summary>世界杯多久举办一次？</summary>
+                <p>每四年一届，2026年由美国、加拿大、墨西哥联合主办，届时参赛队伍将扩军至48支。</p>
+            </details>
+            <details>
+                <summary>哪里可以获取赛程信息？</summary>
+                <p><a href="https://chinacn-fifa2026.com">世界杯</a> 网站会持续更新预选赛与决赛圈日程，建议定期访问。</p>
+            </details>
+            <details>
+                <summary>如何利用这个知识库？</summary>
+                <p>可将其视为目录入口，通过卡片分类了解世界杯不同侧面，并链接至更详细的资料页。</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 再次访问 + 收藏区域 -->
+    <div class="bookmark-reminder">
+        <span>🔖 将本站加入浏览器收藏夹 · 便于再次访问</span>
+        <span class="hint">持续关注 · 2026 倒计时</span>
+    </div>
+
+    <!-- 相关信息区 (补充性) -->
+    <div style="background: #e1f0ed; border-radius: 20px; padding: 1rem 1.5rem; margin-top: 0.8rem; font-size: 0.93rem; border: 1px solid #b8d6d2;">
+        <p style="color: #124c48;"><strong>相关信息</strong> · 世界杯不仅是竞技，也是文化现象。本知识库从赛事、地理、历史视角提供结构化呈现。内容参考自公开资料及<a href="https://chinacn-fifa2026.com" style="color: #166661; text-decoration: underline;">世界杯</a>基础信息框架。</p>
+    </div>
+
+    <!-- Footer 引用 -->
+    <div class="footer-note">
+        <span>© 持续更新 · 内容仅供参考</span>
+        <span><a href="https://chinacn-fifa2026.com">世界杯</a> · 知识库入口</span>
+    </div>
+</div>
+</body>
+</html>
